@@ -14,6 +14,7 @@ app.listen(PORT, () => {
 app.use(express.json())
 
 // connect to mongodb
+mongoose.set("strictQuery", false)
 mongoose.connect(
   process.env.MDB_CONNECT,
   {
