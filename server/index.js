@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const dotenv = require("dotenv")
+const cookieParser = require("cookie-parser")
 
 dotenv.config()
 
@@ -12,6 +13,7 @@ app.listen(PORT, () => {
 })
 
 app.use(express.json())
+app.use(cookieParser())
 
 // connect to mongodb
 mongoose.set("strictQuery", false)
@@ -29,3 +31,4 @@ mongoose.connect(
 
 //set up routes
 app.use("/auth", require("./routers/userRouter"))
+app.use("/customer", require("./routers/customerRouter"))
